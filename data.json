@@ -1,0 +1,50 @@
+[
+  {
+    "id": "hadestown",
+    "title": "Hadestown",
+    "genre": "Myth / Folk",
+    "tagline": "A myth retold as a bluesy underworld story.",
+    "tags": ["mythology", "tragic", "sung-through", "moody"],
+    "overview": "A modern retelling of Orpheus and Eurydice set in an industrial underworld.",
+    "cast": [
+      {"role": "Eurydice", "actor": "Eva Noblezada"},
+      {"role": "Orpheus", "actor": "Reeve Carney"}
+    ],
+    "songs": [
+      {"name": "Road to Hell", "note": "Sets the world + narrator introduces the story."},
+      {"name": "All I’ve Ever Known", "note": "Relationship deepens; stakes become personal."}
+    ]
+  },
+  {
+    "id": "heathers",
+    "title": "Heathers",
+    "genre": "Dark Comedy",
+    "tagline": "High school politics but… murderous.",
+    "tags": ["dark comedy", "teen", "pop-rock", "fast"],
+    "overview": "Veronica gets pulled into the toxic popularity machine and it spirals hard.",
+    "cast": [
+      {"role": "Veronica", "actor": "Barrett Wilbert Weed"},
+      {"role": "J.D.", "actor": "Ryan McCartan"}
+    ],
+    "songs": [
+      {"name": "Candy Store", "note": "The Heathers recruit Veronica into their world."},
+      {"name": "Meant to Be Yours", "note": "Escalation + consequences hit peak intensity."}
+    ]
+  },
+  {
+    "id": "bmc",
+    "title": "Be More Chill",
+    "genre": "Contemporary",
+    "tagline": "Anxious teen gets a brain upgrade with consequences.",
+    "tags": ["contemporary", "comedy", "sci-fi-ish", "pop"],
+    "overview": "Jeremy tries to fix his life using a pill-sized supercomputer… it backfires.",
+    "cast": [
+      {"role": "Jeremy", "actor": "Will Roland"},
+      {"role": "Christine", "actor": "Stephanie Hsu"}
+    ],
+    "songs": [
+      {"name": "The SQUIP Song", "note": "Introduces the concept + the promise of change."},
+      {"name": "Michael in the Bathroom", "note": "Friendship fallout; emotional low point."}
+    ]
+  }
+]

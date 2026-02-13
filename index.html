@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StageDoor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>StageDoor</h1>
+    <p class="sub">Find musicals by vibe, genre, and style — and actually follow what’s happening.</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <input id="search" type="search" placeholder="Search musicals (title)..." />
+      <select id="genre">
+        <option value="">All genres</option>
+      </select>
+    </section>
+
+    <section class="grid" id="grid"></section>
+
+    <section class="detail hidden" id="detail">
+      <button id="back">← Back</button>
+      <h2 id="d-title"></h2>
+      <p class="tagline" id="d-tagline"></p>
+
+      <div class="two-col">
+        <div>
+          <h3>Overview (no spoilers)</h3>
+          <p id="d-overview"></p>
+
+          <h3>Tags</h3>
+          <ul id="d-tags"></ul>
+        </div>
+
+        <div>
+          <h3>Cast (sample)</h3>
+          <ul id="d-cast"></ul>
+
+          <h3>Song timeline (sample)</h3>
+          <ol id="d-songs"></ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Prototype for COMP Senior Project — Angie</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
