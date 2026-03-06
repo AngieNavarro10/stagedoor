@@ -19,28 +19,37 @@ const dTags = document.getElementById("d-tags");
 const dCast = document.getElementById("d-cast");
 const dSongs = document.getElementById("d-songs");
 
-function renderCards(list) {
-  grid.innerHTML = "";
+function renderCards(list){
 
-  list.forEach(s => {
-
-    const card = document.createElement("div");
-    card.className = "card";
-
-    card.innerHTML = `
-      <h3>${s.title}</h3>
-      <p class="meta">${s.genre} • ${s.music_genre} • ${s.format}</p>
-
-      <div class="pillrow">
-        ${s.tags.map(t => `<span class="pill">${t}</span>`).join("")}
-      </div>
-    `;
-
-    card.addEventListener("click", () => openDetail(s.id));
-
-    grid.appendChild(card);
+  grid.innerHTML="";
+  
+  list.forEach(s=>{
+  
+  const card=document.createElement("div");
+  
+  card.className="card";
+  
+  card.innerHTML=`
+  <img src="${s.poster}" class="poster">
+  
+  <div class="cardinfo">
+  <h3>${s.title}</h3>
+  
+  <p class="meta">${s.genre} • ${s.music_genre}</p>
+  
+  <div class="pillrow">
+  ${s.tags.map(t=>`<span class="pill">${t}</span>`).join("")}
+  </div>
+  
+  </div>
+  `;
+  
+  card.onclick=()=>openDetail(s.id);
+  
+  grid.appendChild(card);
+  
   });
-}
+  }
 
 function setOptions(selectEl, values) {
 
@@ -120,55 +129,68 @@ function applyFilters() {
 
 }
 
-function openDetail(id) {
+function openDetail(id){
 
-  const s = shows.find(x => x.id === id);
-
-  dTitle.textContent = s.title;
-  dTagline.textContent = s.tagline;
-  dOverview.textContent = s.overview;
-
-  dTags.innerHTML = "";
-
-  s.tags.forEach(t => {
-
-    const li = document.createElement("li");
-
-    li.textContent = t;
-
-    dTags.appendChild(li);
-
-  });
-
-  dCast.innerHTML = "";
-
-  s.cast.forEach(c => {
-
-    const li = document.createElement("li");
-
-    li.textContent = `${c.role} — ${c.actor}`;
-
-    dCast.appendChild(li);
-
-  });
-
-  dSongs.innerHTML = "";
-
-  s.songs.forEach(song => {
-
-    const li = document.createElement("li");
-
-    li.innerHTML = `<strong>${song.name}</strong>: ${song.note}`;
-
-    dSongs.appendChild(li);
-
-  });
-
-  detail.classList.remove("hidden");
-
+  const s=shows.find(x=>x.id===id);
+  
   grid.classList.add("hidden");
-
-}
+  detail.classList.remove("hidden");
+  
+  dTitle.textContent=s.title;
+  dTagline.textContent=s.tagline || "";
+  dOverview.textContent=s.overview;
+  
+  dTags.innerHTML="";
+  s.tags.forEach(t=>{
+  const li=document.createElement("li");
+  li.textContent=t;
+  dTags.appendChild(li);
+  });
+  
+  dCast.innerHTML="";
+  s.cast.forEach(c=>{
+  const li=document.createElement("li");
+  li.textContent=`${c.role} — ${c.actor}`;
+  dCast.appendChild(li);
+  });
+  
+  dSongs.innerHTML="";
+  s.songs.forEach(song=>{
+  const li=document.createElement("li");
+  li.innerHTML=`<strong>${song.name}</strong>: ${song.note}`;
+  dSongs.appendChild(li);
+  });
+  
+  /* ALSO SECTION */
+  
+  const alsoDiv=document.getElementById("also");
+  
+  alsoDiv.innerHTML="";
+  
+  if(s.also.length>0){
+  
+  s.also.forEach(a=>{
+  
+  const show=shows.find(x=>x.id===a);
+  
+  const card=document.createElement("div");
+  
+  card.className="alsoCard";
+  
+  card.innerHTML=`
+  <img src="${show.poster}">
+  <p>${show.title}</p>
+  `;
+  
+  card.onclick=()=>openDetail(show.id);
+  
+  alsoDiv.appendChild(card);
+  
+  });
+  
+  }
+  
+  }
 
 backBtn.addEventListener("click", () => {
 

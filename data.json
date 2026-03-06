@@ -1,58 +1,201 @@
 [
   {
-    "id": "hadestown",
-    "title": "Hadestown",
-    "genre": "Myth",
-    "music_genre": "Folk Jazz",
-    "format": "Sung-through",
-    "tagline": "A retelling of the Greek myth of Orpheus and Eurydice.",
-    "tags": ["mythology", "tragic", "romantic", "moody", "soulful"],
-    "overview": "Orpheus travels to the underworld to retrieve his love Eurydice from Hadestown.",
-    "cast": [
-      { "role": "Eurydice", "actor": "Eva Noblezada" },
-      { "role": "Orpheus", "actor": "Reeve Carney" }
-    ],
-    "songs": [
-      { "name": "Road to Hell", "note": "Hermes introduces the world and the story." },
-      { "name": "Any Way the Wind Blows", "note": "We meet Eurydice and see her struggle to survive." }
-    ]
+  "id":"hadestown",
+  "title":"Hadestown",
+  "poster":"images/Hadestown.png",
+  "genre":"Myth",
+  "music_genre":"Folk",
+  "format":"Sung-through",
+  "tags":["tragic","mythology","romantic"],
+  "overview":"A modern retelling of the myth of Orpheus and Eurydice set in an industrial underworld.",
+  "cast":[
+  {"role":"Eurydice","actor":"Eva Noblezada"},
+  {"role":"Orpheus","actor":"Reeve Carney"}
+  ],
+  "songs":[
+  {"name":"Road to Hell","note":"Hermes introduces the world."},
+  {"name":"Wait For Me","note":"Orpheus journeys to the underworld."}
+  ],
+  "also":["hadestown-london","hadestown-original"]
   },
-
+  
   {
-    "id": "heathers",
-    "title": "Heathers",
-    "genre": "Dark Comedy",
-    "music_genre": "Pop Rock",
-    "format": "Book Musical",
-    "tagline": "High school popularity turns deadly.",
-    "tags": ["teen", "satire", "dark", "funny"],
-    "overview": "Veronica joins the most powerful clique at school and gets caught in a dangerous relationship with J.D.",
-    "cast": [
-      { "role": "Veronica", "actor": "Barrett Wilbert Weed" },
-      { "role": "J.D.", "actor": "Ryan McCartan" }
-    ],
-    "songs": [
-      { "name": "Beautiful", "note": "Introduces the social hierarchy of Westerberg High." },
-      { "name": "Candy Store", "note": "The Heathers recruit Veronica into their group." }
-    ]
+  "id":"hadestown-london",
+  "title":"Hadestown (Live From London)",
+  "poster":"images/HadestownLondon.jpg",
+  "genre":"Myth",
+  "music_genre":"Folk",
+  "format":"Cast Recording",
+  "tags":["tragic","mythology"],
+  "overview":"Live recording of the London cast of Hadestown.",
+  "cast":[
+  {"role":"Orpheus","actor":"Reeve Carney"}
+  ],
+  "songs":[
+  {"name":"Road to Hell","note":"Opening number"}
+  ],
+  "also":["hadestown"]
   },
-
+  
   {
-    "id": "mamma-mia",
-    "title": "Mamma Mia!",
-    "genre": "Comedy",
-    "music_genre": "Pop",
-    "format": "Jukebox Musical",
-    "tagline": "An ABBA musical about love and family.",
-    "tags": ["romantic", "whimsical", "ABBA", "fun"],
-    "overview": "Sophie invites three possible fathers to her wedding hoping to discover which one is her real dad.",
-    "cast": [
-      { "role": "Sophie", "actor": "Amanda Seyfried" },
-      { "role": "Donna", "actor": "Meryl Streep" }
-    ],
-    "songs": [
-      { "name": "Money, Money, Money", "note": "Donna reflects on her financial struggles." },
-      { "name": "Lay All Your Love On Me", "note": "A fun romantic duet between Sophie and Sky." }
-    ]
+  "id":"hadestown-original",
+  "title":"Hadestown (Original Concept Album)",
+  "poster":"images/OldHadestown.avif",
+  "genre":"Myth",
+  "music_genre":"Folk",
+  "format":"Concept Album",
+  "tags":["mythology"],
+  "overview":"Anaïs Mitchell’s original album that later became the musical.",
+  "cast":[
+  {"role":"Orpheus","actor":"Justin Vernon"}
+  ],
+  "songs":[
+  {"name":"Wait For Me","note":"Same song but now Orpheus is Irish."}
+  ],
+  "also":["hadestown"]
+  },
+  
+  {
+  "id":"heathers",
+  "title":"Heathers",
+  "poster":"images/Heathers.jpg",
+  "genre":"Dark Comedy",
+  "music_genre":"Pop Rock",
+  "format":"Book Musical",
+  "tags":["teen","satire"],
+  "overview":"Veronica joins the most popular clique at school and it spirals into chaos.",
+  "cast":[
+  {"role":"Veronica","actor":"Barrett Wilbert Weed"}
+  ],
+  "songs":[
+  {"name":"Beautiful","note":"Introduces the social world"}
+  ],
+  "also":[]
+  },
+  
+  {
+  "id":"mamma-mia",
+  "title":"Mamma Mia!",
+  "poster":"images/MammaMia.jpg",
+  "genre":"Comedy",
+  "music_genre":"Pop",
+  "format":"Jukebox Musical",
+  "tags":["romantic","ABBA"],
+  "overview":"Sophie invites three possible fathers to her wedding.",
+  "cast":[
+  {"role":"Donna","actor":"Meryl Streep"}
+  ],
+  "songs":[
+  {"name":"Dancing Queen","note":"Peak ABBA"}
+  ],
+  "also":["mamma-mia-movie"]
+  },
+  
+  {
+  "id":"mamma-mia-movie",
+  "title":"Mamma Mia! (Movie)",
+  "poster":"images/MammaMiaMovie.jpg",
+  "genre":"Comedy",
+  "music_genre":"Pop",
+  "format":"Film Musical",
+  "tags":["ABBA"],
+  "overview":"Film adaptation of the musical.",
+  "cast":[
+  {"role":"Donna","actor":"Meryl Streep"}
+  ],
+  "songs":[
+  {"name":"Mamma Mia","note":"Title song"}
+  ],
+  "also":["mamma-mia"]
+  },
+  
+  {
+  "id":"heights",
+  "title":"In The Heights",
+  "poster":"images/InTheHeights.jpg",
+  "genre":"Contemporary",
+  "music_genre":"Latin Hip-Hop",
+  "format":"Book Musical",
+  "tags":["community","latino","spanglish"],
+  "overview":"Stories of life in Washington Heights.",
+  "cast":[
+  {"role":"Usnavi","actor":"Lin-Manuel Miranda"}
+  ],
+  "songs":[
+  {"name":"In The Heights","note":"Opening number"}
+  ],
+  "also":["heights-movie"]
+  },
+  
+  {
+  "id":"heights-movie",
+  "title":"In The Heights (Movie)",
+  "poster":"images/InTheHeightsMovie.jpeg",
+  "genre":"Contemporary",
+  "music_genre":"Latin Pop",
+  "format":"Film Musical",
+  "tags":["community"],
+  "overview":"Film adaptation of the Broadway musical.",
+  "cast":[
+  {"role":"Usnavi","actor":"Anthony Ramos"}
+  ],
+  "songs":[
+  {"name":"96,000","note":"Lottery"}
+  ],
+  "also":["heights"]
+  },
+  
+  {
+  "id":"woods",
+  "title":"Into The Woods",
+  "poster":"images/IntoTheWoods.jpg",
+  "genre":"Fairy Tale",
+  "music_genre":"Broadway",
+  "format":"Book Musical",
+  "tags":["fantasy","dark"],
+  "overview":"Fairy tales collide in a darker story about wishes and consequences.",
+  "cast":[
+  {"role":"The Baker","actor":"Chip Zien"}
+  ],
+  "songs":[
+  {"name":"Into The Woods","note":"Opening number"}
+  ],
+  "also":["woods-movie","woods-2022"]
+  },
+  
+  {
+  "id":"woods-movie",
+  "title":"Into The Woods (Movie)",
+  "poster":"images/IntoTheWoodsMovie.jpeg",
+  "genre":"Fairy Tale",
+  "music_genre":"Broadway",
+  "format":"Film Musical",
+  "tags":["fantasy"],
+  "overview":"Disney adaptation of the Sondheim musical.",
+  "cast":[
+  {"role":"The Witch","actor":"Meryl Streep"}
+  ],
+  "songs":[
+  {"name":"Stay With Me","note":"ate"}
+  ],
+  "also":["woods"]
+  },
+  
+  {
+  "id":"woods-2022",
+  "title":"Into The Woods (2022 Broadway Cast)",
+  "poster":"images/IntoTheWoods2022.jpeg",
+  "genre":"Fairy Tale",
+  "music_genre":"Broadway",
+  "format":"Cast Recording",
+  "tags":["revival"],
+  "overview":"Recording from the 2022 Broadway revival.",
+  "cast":[
+  {"role":"The Witch","actor":"Sara Bareilles"}
+  ],
+  "songs":[
+  {"name":"Stay With Me","note":"I met her irl btw. Totally bragging"}
+  ],
+  "also":["woods"]
   }
-]
+  ]
