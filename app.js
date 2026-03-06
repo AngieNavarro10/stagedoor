@@ -19,37 +19,28 @@ const dTags = document.getElementById("d-tags");
 const dCast = document.getElementById("d-cast");
 const dSongs = document.getElementById("d-songs");
 
-function renderCards(list){
+function renderCards(list) {
+  grid.innerHTML = "";
 
-  grid.innerHTML="";
-  
-  list.forEach(s=>{
-  
-  const card=document.createElement("div");
-  
-  card.className="card";
-  
-  card.innerHTML=`
-  <img src="${s.poster}" class="poster">
-  
-  <div class="cardinfo">
-  <h3>${s.title}</h3>
-  
-  <p class="meta">${s.genre} • ${s.music_genre}</p>
-  
-  <div class="pillrow">
-  ${s.tags.map(t=>`<span class="pill">${t}</span>`).join("")}
-  </div>
-  
-  </div>
-  `;
-  
-  card.onclick=()=>openDetail(s.id);
-  
-  grid.appendChild(card);
-  
+  list.forEach(s => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <img src="${s.poster}" class="poster" alt="${s.title} poster">
+      <div class="cardinfo">
+        <h3>${s.title}</h3>
+        <p class="meta">${s.genre} • ${s.music_genre}</p>
+        <div class="pillrow">
+          ${s.tags.map(t => `<span class="pill">${t}</span>`).join("")}
+        </div>
+      </div>
+    `;
+
+    card.onclick = () => openDetail(s.id);
+    grid.appendChild(card);
   });
-  }
+}
 
 function setOptions(selectEl, values) {
 
