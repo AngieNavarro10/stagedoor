@@ -69,11 +69,11 @@ body {
 
 /* GRID */
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 22px;
-  align-items: start;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, 260px);
+  gap:22px;
+  justify-content:start;
 }
 
 /* CARD */
