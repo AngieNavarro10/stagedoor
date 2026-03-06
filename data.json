@@ -2,55 +2,57 @@
   {
     "id": "hadestown",
     "title": "Hadestown",
-    "genre": "Tragedy / Myth",
-    "music_genre": "Folk / Blues",
+    "genre": "Myth",
+    "music_genre": "Folk Jazz",
     "format": "Sung-through",
-    "tagline": "A myth retold as a bluesy underworld story.",
-    "tags": ["mythology", "moody", "underworld", "romance"],
-    "overview": "A modern retelling of Orpheus and Eurydice set in an industrial underworld.",
+    "tagline": "A retelling of the Greek myth of Orpheus and Eurydice.",
+    "tags": ["mythology", "tragic", "romantic", "moody", "soulful"],
+    "overview": "Orpheus travels to the underworld to retrieve his love Eurydice from Hadestown.",
     "cast": [
       { "role": "Eurydice", "actor": "Eva Noblezada" },
       { "role": "Orpheus", "actor": "Reeve Carney" }
     ],
     "songs": [
-      { "name": "Road to Hell", "note": "Sets the world + narrator introduces the story." },
-      { "name": "All I’ve Ever Known", "note": "Relationship deepens; stakes become personal." }
+      { "name": "Road to Hell", "note": "Hermes introduces the world and the story." },
+      { "name": "Any Way the Wind Blows", "note": "We meet Eurydice and see her struggle to survive." }
     ]
   },
+
   {
     "id": "heathers",
     "title": "Heathers",
     "genre": "Dark Comedy",
-    "music_genre": "Pop-Rock",
+    "music_genre": "Pop Rock",
     "format": "Book Musical",
-    "tagline": "High school politics but… murderous.",
-    "tags": ["teen", "satire", "fast-paced", "high school"],
-    "overview": "Veronica gets pulled into the toxic popularity machine and it spirals hard.",
+    "tagline": "High school popularity turns deadly.",
+    "tags": ["teen", "satire", "dark", "funny"],
+    "overview": "Veronica joins the most powerful clique at school and gets caught in a dangerous relationship with J.D.",
     "cast": [
       { "role": "Veronica", "actor": "Barrett Wilbert Weed" },
       { "role": "J.D.", "actor": "Ryan McCartan" }
     ],
     "songs": [
-      { "name": "Candy Store", "note": "The Heathers recruit Veronica into their world." },
-      { "name": "Meant to Be Yours", "note": "Escalation + consequences hit peak intensity." }
+      { "name": "Beautiful", "note": "Introduces the social hierarchy of Westerberg High." },
+      { "name": "Candy Store", "note": "The Heathers recruit Veronica into their group." }
     ]
   },
+
   {
-    "id": "bmc",
-    "title": "Be More Chill",
-    "genre": "Comedy / Contemporary",
+    "id": "mamma-mia",
+    "title": "Mamma Mia!",
+    "genre": "Comedy",
     "music_genre": "Pop",
-    "format": "Book Musical",
-    "tagline": "Anxious teen gets a brain upgrade with consequences.",
-    "tags": ["teen", "coming-of-age", "sci-fi-ish", "awkward", "school"],
-    "overview": "Jeremy tries to fix his life using a pill-sized supercomputer… it backfires.",
+    "format": "Jukebox Musical",
+    "tagline": "An ABBA musical about love and family.",
+    "tags": ["romantic", "whimsical", "ABBA", "fun"],
+    "overview": "Sophie invites three possible fathers to her wedding hoping to discover which one is her real dad.",
     "cast": [
-      { "role": "Jeremy", "actor": "Will Roland" },
-      { "role": "Christine", "actor": "Stephanie Hsu" }
+      { "role": "Sophie", "actor": "Amanda Seyfried" },
+      { "role": "Donna", "actor": "Meryl Streep" }
     ],
     "songs": [
-      { "name": "The SQUIP Song", "note": "Introduces the concept + the promise of change." },
-      { "name": "Michael in the Bathroom", "note": "Friendship fallout; emotional low point." }
+      { "name": "Money, Money, Money", "note": "Donna reflects on her financial struggles." },
+      { "name": "Lay All Your Love On Me", "note": "A fun romantic duet between Sophie and Sky." }
     ]
   }
 ]

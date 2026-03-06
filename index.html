@@ -1,69 +1,106 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>StageDoor</title>
-  <link rel="stylesheet" href="style.css" />
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>StageDoor</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-  <header class="header">
-    <h1>StageDoor</h1>
-    <p class="sub">Find musicals by genre, music genre, format, and tags!</p>
-  </header>
 
-  <main class="container">
-    <section class="controls">
-      <input id="search" type="search" placeholder="Search musicals (title)..." />
-    
-      <select id="genre">
-        <option value="">All genres</option>
-      </select>
-    
-      <select id="musicGenre">
-        <option value="">All music genres</option>
-      </select>
-    
-      <select id="format">
-        <option value="">All formats</option>
-      </select>
-    
-      <select id="tag">
-        <option value="">All tags</option>
-      </select>
-    </section>    
+<header class="header">
 
-    <section class="grid" id="grid"></section>
+<h1>StageDoor</h1>
 
-    <section class="detail hidden" id="detail">
-      <button id="back">← Back</button>
-      <h2 id="d-title"></h2>
-      <p class="tagline" id="d-tagline"></p>
+<p class="sub">Discover musicals by genre, music style, and structure</p>
 
-      <div class="two-col">
-        <div>
-          <h3>Overview (no spoilers)</h3>
-          <p id="d-overview"></p>
+</header>
 
-          <h3>Tags</h3>
-          <ul id="d-tags"></ul>
-        </div>
 
-        <div>
-          <h3>Cast (sample)</h3>
-          <ul id="d-cast"></ul>
+<main class="container">
 
-          <h3>Song timeline (sample)</h3>
-          <ol id="d-songs"></ol>
-        </div>
-      </div>
-    </section>
-  </main>
+<section class="controls">
 
-  <footer class="footer">
-    <small>Prototype 1 meow meow Angie meow =^w^=</small>
-  </footer>
+<input id="search" type="search" placeholder="Search musicals..." />
 
-  <script src="app.js"></script>
+<select id="genre">
+<option value="">All genres</option>
+</select>
+
+<select id="musicGenre">
+<option value="">All music genres</option>
+</select>
+
+<select id="format">
+<option value="">All formats</option>
+</select>
+
+<select id="tag">
+<option value="">All tags</option>
+</select>
+
+</section>
+
+
+<section class="grid" id="grid"></section>
+
+
+<section class="detail hidden" id="detail">
+
+<button id="back">← Back</button>
+
+<h2 id="d-title"></h2>
+
+<p class="tagline" id="d-tagline"></p>
+
+<div class="two-col">
+
+<div>
+
+<h3>Overview</h3>
+
+<p id="d-overview"></p>
+
+<h3>Tags</h3>
+
+<ul id="d-tags"></ul>
+
+</div>
+
+<div>
+
+<h3>Cast</h3>
+
+<ul id="d-cast"></ul>
+
+<h3>Song timeline</h3>
+
+<ol id="d-songs"></ol>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+<small>StageDoor prototype — Angie</small>
+
+</footer>
+
+<script src="app.js"></script>
+
 </body>
+
 </html>
