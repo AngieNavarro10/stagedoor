@@ -99,7 +99,7 @@
   "genre":"Comedy",
   "music_genre":"Pop",
   "format":"Film Musical",
-  "tags":["ABBA"],
+  "tags":["romantic","ABBA"],
   "overview":"Film adaptation of the musical.",
   "cast":[
   {"role":"Donna","actor":"Meryl Streep"}
@@ -171,7 +171,7 @@
   "genre":"Fairy Tale",
   "music_genre":"Broadway",
   "format":"Film Musical",
-  "tags":["fantasy"],
+  "tags":["fantasy","dark"],
   "overview":"Disney adaptation of the Sondheim musical.",
   "cast":[
   {"role":"The Witch","actor":"Meryl Streep"}
@@ -189,7 +189,7 @@
   "genre":"Fairy Tale",
   "music_genre":"Broadway",
   "format":"Book Musical",
-  "tags":["revival"],
+  "tags":["fantasy","dark","revival"],
   "overview":"Recording from the 2022 Broadway revival.",
   "cast":[
   {"role":"The Witch","actor":"Sara Bareilles"}
