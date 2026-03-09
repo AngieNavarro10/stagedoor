@@ -26,13 +26,13 @@
   "genre":"Myth",
   "music_genre":"Folk",
   "format":"Cast Recording",
-  "tags":["tragic","mythology"],
+  "tags":["tragic","mythology", "romantic"],
   "overview":"Live recording of the London cast of Hadestown.",
   "cast":[
-  {"role":"Orpheus","actor":"Reeve Carney"}
+  {"role":"Orpheus","actor":"Dylan Wood"}
   ],
   "songs":[
-  {"name":"Road to Hell","note":"Opening number"}
+  {"name":"Wait For Me","note":"Same song but now Orpheus is Irish."}
   ],
   "also":["hadestown"]
   },
@@ -44,13 +44,13 @@
   "genre":"Myth",
   "music_genre":"Folk",
   "format":"Concept Album",
-  "tags":["mythology"],
-  "overview":"Anaïs Mitchell’s original album that later became the musical.",
+  "tags":["tragic","mythology","romantic"],
+  "overview":"Anaïs Mitchell’s original album (2017) that later became the musical.",
   "cast":[
-  {"role":"Orpheus","actor":"Justin Vernon"}
+  {"role":"Orpheus","actor":"Damon Daunno"}
   ],
   "songs":[
-  {"name":"Wait For Me","note":"Same song but now Orpheus is Irish."}
+  {"name":"Epic III","note":"Superior Epic III"}
   ],
   "also":["hadestown"]
   },
@@ -83,7 +83,8 @@
   "tags":["romantic","ABBA"],
   "overview":"Sophie invites three possible fathers to her wedding.",
   "cast":[
-  {"role":"Donna","actor":"Meryl Streep"}
+  {"role":"Donna","actor":"Louise Pitre"},
+  {"role":"Sophie","actor":"Tina Maddigan"}
   ],
   "songs":[
   {"name":"Dancing Queen","note":"Peak ABBA"}
@@ -132,9 +133,9 @@
   "title":"In The Heights (Movie)",
   "poster":"images/InTheHeightsMovie.jpeg",
   "genre":"Contemporary",
-  "music_genre":"Latin Pop",
+  "music_genre":"Latin Hip-Hop",
   "format":"Film Musical",
-  "tags":["community"],
+  "tags":["community","latino","spanglish"],
   "overview":"Film adaptation of the Broadway musical.",
   "cast":[
   {"role":"Usnavi","actor":"Anthony Ramos"}
@@ -187,7 +188,7 @@
   "poster":"images/IntoTheWoods2022.jpeg",
   "genre":"Fairy Tale",
   "music_genre":"Broadway",
-  "format":"Cast Recording",
+  "format":"Book Musical",
   "tags":["revival"],
   "overview":"Recording from the 2022 Broadway revival.",
   "cast":[
