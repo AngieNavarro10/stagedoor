@@ -1,6 +1,7 @@
 let shows = [];
 let filtered = [];
 
+// Archive page elements 
 const grid = document.getElementById("grid");
 const search = document.getElementById("search");
 const genre = document.getElementById("genre");
@@ -8,8 +9,31 @@ const musicGenre = document.getElementById("musicGenre");
 const format = document.getElementById("format");
 const tag = document.getElementById("tag");
 
+// Theme toggle
+function setupThemeToggle() {
+    const toggle = document.getElementById("theme-toggle");
+    if (!toggle) return;
+
+    // Load saved preference or default to dark
+    const saved = localStorage.getItem("theme") || "dark";
+    const isLight = saved === "light";
+
+    document.body.classList.toggle("light", isLight);
+    document.body.classList.toggle("dark", !isLight);
+    toggle.checked = isLight;
+
+    toggle.addEventListener("change", () => {
+        const nowLight = toggle.checked;
+        document.body.classList.toggle("light", nowLight);
+        document.body.classList.toggle("dark", !nowLight);
+        localStorage.setItem("theme", nowLight ? "light" : "dark");
+    });
+}
+
 function renderCards(list) {
+    if (!grid) return;
     grid.innerHTML = "";
+
     list.forEach(s => {
         const card = document.createElement("div");
         card.className = "card";
@@ -27,6 +51,7 @@ function renderCards(list) {
 }
 
 function setOptions(selectEl, values) {
+    if (!selectEl) return;
     const first = selectEl.options[0];
     selectEl.innerHTML = "";
     selectEl.appendChild(first);
@@ -39,6 +64,8 @@ function setOptions(selectEl, values) {
 }
 
 function populateFilters() {
+    if (!genre || !musicGenre || !format || !tag) return;
+
     const genres = [...new Set(shows.map(s => s.genre))].sort();
     const musicGenres = [...new Set(shows.map(s => s.music_genre))].sort();
     const formats = [...new Set(shows.map(s => s.format))].sort();
@@ -51,11 +78,13 @@ function populateFilters() {
 }
 
 function applyFilters() {
-    const q = search.value.toLowerCase().trim();
-    const g = genre.value;
-    const mg = musicGenre.value;
-    const f = format.value;
-    const t = tag.value;
+    if (!grid) return;
+
+    const q = (search ? search.value : "").toLowerCase().trim();
+    const g = genre ? genre.value : "";
+    const mg = musicGenre ? musicGenre.value : "";
+    const f = format ? format.value : "";
+    const t = tag ? tag.value : "";
 
     filtered = shows.filter(s => {
         const matchesSearch = s.title.toLowerCase().includes(q);
@@ -63,38 +92,27 @@ function applyFilters() {
         const matchesMusic = !mg || s.music_genre === mg;
         const matchesFormat = !f || s.format === f;
         const matchesTag = !t || s.tags.includes(t);
-
         return matchesSearch && matchesGenre && matchesMusic && matchesFormat && matchesTag;
     });
 
     renderCards(filtered);
 }
 
-/* Theme toggle (used on both pages) */
-function setupThemeToggle() {
-    const toggle = document.getElementById("theme-toggle");
-    if (!toggle) return;
-
-    // Load saved preference
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    document.body.classList.toggle("light", savedTheme === "light");
-    document.body.classList.toggle("dark", savedTheme === "dark");
-    toggle.checked = savedTheme === "light";
-
-    toggle.addEventListener("change", () => {
-        const isLight = toggle.checked;
-        document.body.classList.toggle("light", isLight);
-        document.body.classList.toggle("dark", !isLight);
-        localStorage.setItem("theme", isLight ? "light" : "dark");
-    });
-}
-
 async function init() {
     const res = await fetch("data.json");
     shows = await res.json();
+
     populateFilters();
     applyFilters();
-    setupThemeToggle();   // ← this makes light mode work everywhere
+
+    // Attach listeners only if they exist (works on both pages)
+    if (search) search.addEventListener("input", applyFilters);
+    if (genre) genre.addEventListener("change", applyFilters);
+    if (musicGenre) musicGenre.addEventListener("change", applyFilters);
+    if (format) format.addEventListener("change", applyFilters);
+    if (tag) tag.addEventListener("change", applyFilters);
+
+    setupThemeToggle();
 }
 
 init();
