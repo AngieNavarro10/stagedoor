@@ -8,26 +8,23 @@
 </head>
 <body class="dark">
 
-    <!-- HEADER / NAV -->
+    <!-- HEADER -->
     <header class="header">
         <div class="header-content">
-            <!-- Logo -->
-            <a href="#home" class="logo-link">
+            <a href="index.html" class="logo-link">
                 <img src="images/StageDoorLogo.png" alt="StageDoor Logo" class="logo">
             </a>
 
-            <!-- Navigation -->
             <nav class="nav">
-                <a href="#home" class="nav-link active">Home</a>
+                <a href="index.html" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About StageDoor</a>
                 <a href="#archive" class="nav-link">Archive</a>
             </nav>
 
-            <!-- Theme Toggle -->
             <div class="theme-toggle">
                 <span class="toggle-label">Light</span>
                 <label class="switch">
-                    <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+                    <input type="checkbox" id="theme-toggle">
                     <span class="slider"></span>
                 </label>
                 <span class="toggle-label">Dark</span>
@@ -36,14 +33,22 @@
     </header>
 
     <main>
-        <!-- HOME / HERO -->
-        <section id="home" class="hero">
-            <div class="hero-bg">
-                <img src="images/StageDoorImage4.jpg" alt="Theatre entrance" class="hero-image">
-                <div class="hero-overlay">
+        <!-- HOME - Side-by-side like your screenshot -->
+        <section id="home" class="home-section">
+            <div class="container home-grid">
+                <!-- Left: Image -->
+                <div class="home-image">
+                    <img src="images/StageDoorImage4.jpg" alt="Theatre entrance">
+                </div>
+
+                <!-- Right: Text -->
+                <div class="home-text">
                     <h1 class="hero-title">STAGEDOOR</h1>
                     <p class="hero-subtitle">
-                        The definitive musical theatre archive.
+                        The definitive musical theatre archive.<br>
+                        Discover production histories, character breakdowns,<br>
+                        and the evolution of the stage from classic revivals<br>
+                        to contemporary masterpieces.
                     </p>
                     <a href="#archive" class="btn-primary">Browse the Archive</a>
                 </div>
@@ -56,7 +61,7 @@
                 <h2 class="section-title">About StageDoor</h2>
                 <div class="about-content">
                     <p>StageDoor is a searchable and filterable catalog of musicals, categorized by genre, tone, musical style, and narrative structure.</p>
-                    <p>Each show features a spoiler-free overview, full story synopsis, song-by-song timeline, cast listings, and “Also” recommendations. Everything you need in one place.</p>
+                    <p>Each show features a spoiler-free overview, full story synopsis, song-by-song timeline, cast listings, and “Also” recommendations — everything you need in one place.</p>
                 </div>
             </div>
         </section>
@@ -74,33 +79,7 @@
                     <select id="tag"><option value="">All tags</option></select>
                 </section>
 
-                <div class="catalog-container">
-                    <section class="grid" id="grid"></section>
-
-                    <!-- Detail View -->
-                    <section class="detail hidden" id="detail">
-                        <button id="back" class="back-btn">← Back to Archive</button>
-                        <h2 id="d-title"></h2>
-                        <p class="tagline" id="d-tagline"></p>
-
-                        <div class="two-col">
-                            <div>
-                                <h3>Overview</h3>
-                                <p id="d-overview"></p>
-                                <h3>Tags</h3>
-                                <ul id="d-tags" class="tag-list"></ul>
-                            </div>
-                            <div>
-                                <h3>Cast</h3>
-                                <ul id="d-cast" class="cast-list"></ul>
-                                <h3>Song Timeline</h3>
-                                <ol id="d-songs" class="song-list"></ol>
-                                <h3>Also</h3>
-                                <div id="also" class="also"></div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
+                <section class="grid" id="grid"></section>
             </div>
         </section>
     </main>

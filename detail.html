@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="page-title">StageDoor - Show Detail</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="images/StageDoorLogo.png" alt="StageDoor Logo" class="logo">
+            </a>
+
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About StageDoor</a>
+                <a href="index.html#archive" class="nav-link">Archive</a>
+            </nav>
+
+            <div class="theme-toggle">
+                <span class="toggle-label">Light</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span class="toggle-label">Dark</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 60px;">
+        <button onclick="window.history.back()" class="back-btn">← Back to Archive</button>
+
+        <h2 id="d-title"></h2>
+        <p class="tagline" id="d-tagline"></p>
+
+        <div class="two-col">
+            <div>
+                <h3>Overview</h3>
+                <p id="d-overview"></p>
+                <h3>Tags</h3>
+                <ul id="d-tags" class="tag-list"></ul>
+            </div>
+            <div>
+                <h3>Cast</h3>
+                <ul id="d-cast" class="cast-list"></ul>
+                <h3>Song Timeline</h3>
+                <ol id="d-songs" class="song-list"></ol>
+                <h3>Also</h3>
+                <div id="also" class="also"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <small>StageDoor prototype — Angie</small>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Load detail data
+        async function loadDetail() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            if (!id) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const res = await fetch('data.json');
+            const shows = await res.json();
+            const show = shows.find(s => s.id === id);
+
+            if (!show) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            document.getElementById('page-title').textContent = `StageDoor - ${show.title}`;
+            document.getElementById('d-title').textContent = show.title;
+            document.getElementById('d-tagline').textContent = show.tagline || '';
+            document.getElementById('d-overview').textContent = show.overview;
+
+            // Tags
+            const tagsUl = document.getElementById('d-tags');
+            tagsUl.innerHTML = '';
+            show.tags.forEach(t => {
+                const li = document.createElement('li');
+                li.textContent = t;
+                tagsUl.appendChild(li);
+            });
+
+            // Cast
+            const castUl = document.getElementById('d-cast');
+            castUl.innerHTML = '';
+            show.cast.forEach(c => {
+                const li = document.createElement('li');
+                li.textContent = `${c.role} — ${c.actor}`;
+                castUl.appendChild(li);
+            });
+
+            // Songs
+            const songsOl = document.getElementById('d-songs');
+            songsOl.innerHTML = '';
+            show.songs.forEach(song => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${song.name}</strong>: ${song.note}`;
+                songsOl.appendChild(li);
+            });
+
+            // Also
+            const alsoDiv = document.getElementById('also');
+            alsoDiv.innerHTML = '';
+            if (show.also && show.also.length > 0) {
+                const allShows = shows; // already loaded
+                show.also.forEach(aId => {
+                    const related = allShows.find(s => s.id === aId);
+                    if (!related) return;
+                    const card = document.createElement('div');
+                    card.className = 'alsoCard';
+                    card.innerHTML = `
+                        <img src="${related.poster}" alt="${related.title}">
+                        <p>${related.title}</p>
+                    `;
+                    card.onclick = () => window.location.href = `detail.html?id=${related.id}`;
+                    alsoDiv.appendChild(card);
+                });
+            }
+        }
+
+        // Theme toggle (same as index)
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('light');
+            document.body.classList.toggle('dark');
+        });
+
+        loadDetail();
+    </script>
+</body>
+</html>

@@ -3,21 +3,10 @@ let filtered = [];
 
 const grid = document.getElementById("grid");
 const search = document.getElementById("search");
-
 const genre = document.getElementById("genre");
 const musicGenre = document.getElementById("musicGenre");
 const format = document.getElementById("format");
 const tag = document.getElementById("tag");
-
-const detail = document.getElementById("detail");
-const backBtn = document.getElementById("back");
-
-const dTitle = document.getElementById("d-title");
-const dTagline = document.getElementById("d-tagline");
-const dOverview = document.getElementById("d-overview");
-const dTags = document.getElementById("d-tags");
-const dCast = document.getElementById("d-cast");
-const dSongs = document.getElementById("d-songs");
 
 function renderCards(list) {
     grid.innerHTML = "";
@@ -37,7 +26,9 @@ function renderCards(list) {
             </div>
         `;
 
-        card.onclick = () => openDetail(s.id);
+        card.onclick = () => {
+            window.location.href = `detail.html?id=${s.id}`;
+        };
         grid.appendChild(card);
     });
 }
@@ -46,7 +37,6 @@ function setOptions(selectEl, values) {
     const first = selectEl.options[0];
     selectEl.innerHTML = "";
     selectEl.appendChild(first);
-
     values.forEach(v => {
         const opt = document.createElement("option");
         opt.value = v;
@@ -80,105 +70,18 @@ function applyFilters() {
         const matchesMusicGenre = mg ? s.music_genre === mg : true;
         const matchesFormat = f ? s.format === f : true;
         const matchesTag = t ? s.tags.includes(t) : true;
-
         return matchesSearch && matchesGenre && matchesMusicGenre && matchesFormat && matchesTag;
     });
 
     renderCards(filtered);
 }
 
-function openDetail(id) {
-    const s = shows.find(x => x.id === id);
-    
-    grid.classList.add("hidden");
-    detail.classList.remove("hidden");
-
-    dTitle.textContent = s.title;
-    dTagline.textContent = s.tagline || "";
-    dOverview.textContent = s.overview;
-
-    dTags.innerHTML = "";
-    s.tags.forEach(t => {
-        const li = document.createElement("li");
-        li.textContent = t;
-        dTags.appendChild(li);
-    });
-
-    dCast.innerHTML = "";
-    s.cast.forEach(c => {
-        const li = document.createElement("li");
-        li.textContent = `${c.role} — ${c.actor}`;
-        dCast.appendChild(li);
-    });
-
-    dSongs.innerHTML = "";
-    s.songs.forEach(song => {
-        const li = document.createElement("li");
-        li.innerHTML = `<strong>${song.name}</strong>: ${song.note}`;
-        dSongs.appendChild(li);
-    });
-
-    const alsoDiv = document.getElementById("also");
-    alsoDiv.innerHTML = "";
-
-    if (s.also && s.also.length > 0) {
-        s.also.forEach(a => {
-            const show = shows.find(x => x.id === a);
-            if (!show) return;
-            const card = document.createElement("div");
-            card.className = "alsoCard";
-            card.innerHTML = `
-                <img src="${show.poster}">
-                <p>${show.title}</p>
-            `;
-            card.onclick = () => openDetail(show.id);
-            alsoDiv.appendChild(card);
-        });
-    }
-}
-
-backBtn.addEventListener("click", () => {
-    detail.classList.add("hidden");
-    grid.classList.remove("hidden");
-});
-
-// Event listeners
-search.addEventListener("input", applyFilters);
-genre.addEventListener("change", applyFilters);
-musicGenre.addEventListener("change", applyFilters);
-format.addEventListener("change", applyFilters);
-tag.addEventListener("change", applyFilters);
-
 // Theme toggle
 const themeToggle = document.getElementById("theme-toggle");
-themeToggle.addEventListener("change", () => {
-    document.body.classList.toggle("light");
-    document.body.classList.toggle("dark");
-});
-
-// Simple active nav highlighting on scroll
-function highlightNav() {
-    const sections = ['home', 'about', 'archive'];
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-        let current = 'home';
-        sections.forEach(sectionId => {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 150) {
-                    current = sectionId;
-                }
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
+if (themeToggle) {
+    themeToggle.addEventListener("change", () => {
+        document.body.classList.toggle("light");
+        document.body.classList.toggle("dark");
     });
 }
 
@@ -187,7 +90,6 @@ async function init() {
     shows = await res.json();
     populateFilters();
     applyFilters();
-    highlightNav();
 }
 
 init();
