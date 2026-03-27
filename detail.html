@@ -42,13 +42,13 @@
                 <h3>Overview</h3>
                 <p id="d-overview"></p>
                 <h3>Tags</h3>
-                <ul id="d-tags" class="tag-list"></ul>
+                <ul id="d-tags"></ul>
             </div>
             <div>
                 <h3>Cast</h3>
-                <ul id="d-cast" class="cast-list"></ul>
+                <ul id="d-cast"></ul>
                 <h3>Song Timeline</h3>
-                <ol id="d-songs" class="song-list"></ol>
+                <ol id="d-songs"></ol>
                 <h3>Also</h3>
                 <div id="also" class="also"></div>
             </div>
@@ -76,42 +76,24 @@
             document.getElementById('d-tagline').textContent = show.tagline || '';
             document.getElementById('d-overview').textContent = show.overview;
 
-            // Tags
-            const tagsUl = document.getElementById('d-tags');
-            tagsUl.innerHTML = show.tags.map(t => `<li>${t}</li>`).join('');
+            document.getElementById('d-tags').innerHTML = show.tags.map(t => `<li>${t}</li>`).join('');
+            document.getElementById('d-cast').innerHTML = show.cast.map(c => `<li>${c.role} — ${c.actor}</li>`).join('');
+            document.getElementById('d-songs').innerHTML = show.songs.map((song, i) => `<li><strong>${i+1}. ${song.name}:</strong> ${song.note}</li>`).join('');
 
-            // Cast
-            const castUl = document.getElementById('d-cast');
-            castUl.innerHTML = show.cast.map(c => `<li>${c.role} — ${c.actor}</li>`).join('');
-
-            // Songs
-            const songsOl = document.getElementById('d-songs');
-            songsOl.innerHTML = show.songs.map((song, i) => `<li><strong>${i+1}. ${song.name}:</strong> ${song.note}</li>`).join('');
-
-            // ALSO — now proper small cards + mutual links
             const alsoDiv = document.getElementById('also');
             alsoDiv.innerHTML = '';
-            if (show.also && show.also.length > 0) {
+            if (show.also && show.also.length) {
                 show.also.forEach(aId => {
                     const related = shows.find(s => s.id === aId);
                     if (!related) return;
                     const card = document.createElement('div');
                     card.className = 'alsoCard';
-                    card.innerHTML = `
-                        <img src="${related.poster}" alt="${related.title}">
-                        <p>${related.title}</p>
-                    `;
+                    card.innerHTML = `<img src="${related.poster}" alt="${related.title}"><p>${related.title}</p>`;
                     card.onclick = () => window.location.href = `detail.html?id=${related.id}`;
                     alsoDiv.appendChild(card);
                 });
             }
         }
-
-        // Theme toggle (now works on detail page)
-        document.getElementById('theme-toggle').addEventListener('change', () => {
-            document.body.classList.toggle('light');
-            document.body.classList.toggle('dark');
-        });
 
         loadDetail();
     </script>

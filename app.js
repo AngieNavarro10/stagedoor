@@ -32,7 +32,8 @@ function setOptions(selectEl, values) {
     selectEl.appendChild(first);
     values.forEach(v => {
         const opt = document.createElement("option");
-        opt.value = v; opt.textContent = v;
+        opt.value = v;
+        opt.textContent = v;
         selectEl.appendChild(opt);
     });
 }
@@ -50,33 +51,50 @@ function populateFilters() {
 }
 
 function applyFilters() {
-    const q = search.value.toLowerCase();
-    const g = genre.value; const mg = musicGenre.value;
-    const f = format.value; const t = tag.value;
+    const q = search.value.toLowerCase().trim();
+    const g = genre.value;
+    const mg = musicGenre.value;
+    const f = format.value;
+    const t = tag.value;
 
     filtered = shows.filter(s => {
-        return (
-            s.title.toLowerCase().includes(q) &&
-            (!g || s.genre === g) &&
-            (!mg || s.music_genre === mg) &&
-            (!f || s.format === f) &&
-            (!t || s.tags.includes(t))
-        );
+        const matchesSearch = s.title.toLowerCase().includes(q);
+        const matchesGenre = !g || s.genre === g;
+        const matchesMusic = !mg || s.music_genre === mg;
+        const matchesFormat = !f || s.format === f;
+        const matchesTag = !t || s.tags.includes(t);
+
+        return matchesSearch && matchesGenre && matchesMusic && matchesFormat && matchesTag;
     });
+
     renderCards(filtered);
 }
 
-/* Theme toggle */
-document.getElementById("theme-toggle").addEventListener("change", () => {
-    document.body.classList.toggle("light");
-    document.body.classList.toggle("dark");
-});
+/* Theme toggle (used on both pages) */
+function setupThemeToggle() {
+    const toggle = document.getElementById("theme-toggle");
+    if (!toggle) return;
+
+    // Load saved preference
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    document.body.classList.toggle("light", savedTheme === "light");
+    document.body.classList.toggle("dark", savedTheme === "dark");
+    toggle.checked = savedTheme === "light";
+
+    toggle.addEventListener("change", () => {
+        const isLight = toggle.checked;
+        document.body.classList.toggle("light", isLight);
+        document.body.classList.toggle("dark", !isLight);
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+}
 
 async function init() {
     const res = await fetch("data.json");
     shows = await res.json();
     populateFilters();
     applyFilters();
+    setupThemeToggle();   // ← this makes light mode work everywhere
 }
 
 init();
