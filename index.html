@@ -1,109 +1,118 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-
-<meta charset="utf-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>StageDoor</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StageDoor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body class="dark">
 
-<body>
+    <!-- HEADER / NAV -->
+    <header class="header">
+        <div class="header-content">
+            <!-- Logo -->
+            <a href="#home" class="logo-link">
+                <img src="images/StageDoorLogo.png" alt="StageDoor Logo" class="logo">
+            </a>
 
-<header class="header">
+            <!-- Navigation -->
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About StageDoor</a>
+                <a href="#archive" class="nav-link">Archive</a>
+            </nav>
 
-<h1>StageDoor</h1>
+            <!-- Theme Toggle -->
+            <div class="theme-toggle">
+                <span class="toggle-label">Light</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="slider"></span>
+                </label>
+                <span class="toggle-label">Dark</span>
+            </div>
+        </div>
+    </header>
 
-<p class="sub">Archive of musicals</p>
+    <main>
+        <!-- HOME / HERO -->
+        <section id="home" class="hero">
+            <div class="hero-bg">
+                <img src="images/StageDoorImage4.jpg" alt="Theatre entrance" class="hero-image">
+                <div class="hero-overlay">
+                    <h1 class="hero-title">STAGEDOOR</h1>
+                    <p class="hero-subtitle">
+                        The definitive musical theatre archive.<br>
+                        Discover production histories, character breakdowns,<br>
+                        and the evolution of the stage.
+                    </p>
+                    <a href="#archive" class="btn-primary">Browse the Archive</a>
+                </div>
+            </div>
+        </section>
 
-</header>
+        <!-- ABOUT -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About StageDoor</h2>
+                <div class="about-content">
+                    <p>StageDoor is a searchable and filterable catalog of musicals, categorized by genre, tone, musical style, and narrative structure.</p>
+                    <p>Each show features a spoiler-free overview, full story synopsis, song-by-song timeline, cast listings, and “Also” recommendations — everything you need in one place.</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- ARCHIVE -->
+        <section id="archive" class="archive-section">
+            <div class="container">
+                <h2 class="section-title">Musical Archive</h2>
 
-<main class="container">
+                <section class="controls">
+                    <input id="search" type="search" placeholder="Search musicals...">
+                    <select id="genre"><option value="">All genres</option></select>
+                    <select id="musicGenre"><option value="">All music genres</option></select>
+                    <select id="format"><option value="">All formats</option></select>
+                    <select id="tag"><option value="">All tags</option></select>
+                </section>
 
-<section class="controls">
+                <div class="catalog-container">
+                    <section class="grid" id="grid"></section>
 
-<input id="search" type="search" placeholder="Search musicals..." />
+                    <!-- Detail View -->
+                    <section class="detail hidden" id="detail">
+                        <button id="back" class="back-btn">← Back to Archive</button>
+                        <h2 id="d-title"></h2>
+                        <p class="tagline" id="d-tagline"></p>
 
-<select id="genre">
-<option value="">All genres</option>
-</select>
+                        <div class="two-col">
+                            <div>
+                                <h3>Overview</h3>
+                                <p id="d-overview"></p>
+                                <h3>Tags</h3>
+                                <ul id="d-tags" class="tag-list"></ul>
+                            </div>
+                            <div>
+                                <h3>Cast</h3>
+                                <ul id="d-cast" class="cast-list"></ul>
+                                <h3>Song Timeline</h3>
+                                <ol id="d-songs" class="song-list"></ol>
+                                <h3>Also</h3>
+                                <div id="also" class="also"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<select id="musicGenre">
-<option value="">All music genres</option>
-</select>
+    <footer class="footer">
+        <div class="container">
+            <small>StageDoor prototype — Angie</small>
+        </div>
+    </footer>
 
-<select id="format">
-<option value="">All formats</option>
-</select>
-
-<select id="tag">
-<option value="">All tags</option>
-</select>
-
-</section>
-
-
-<section class="grid" id="grid"></section>
-
-
-<section class="detail hidden" id="detail">
-
-<button id="back">← Back</button>
-
-<h2 id="d-title"></h2>
-
-<p class="tagline" id="d-tagline"></p>
-
-<div class="two-col">
-
-<div>
-
-<h3>Overview</h3>
-
-<p id="d-overview"></p>
-
-<h3>Tags</h3>
-
-<ul id="d-tags"></ul>
-
-</div>
-
-<div>
-
-<h3>Cast</h3>
-
-<ul id="d-cast"></ul>
-
-<h3>Song timeline</h3>
-
-<ol id="d-songs"></ol>
-
-<h3>Also</h3>
-<div id="also" class="also"></div>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-
-<footer class="footer">
-
-<small>StageDoor prototype — Angie</small>
-
-</footer>
-
-<script src="app.js"></script>
-
+    <script src="app.js"></script>
 </body>
-
 </html>
