@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title id="page-title">StageDoor - Show Detail</title>
+    <title id="page-title">StageDoor</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark">
@@ -11,7 +11,7 @@
     <header class="header">
         <div class="header-content">
             <a href="index.html" class="logo-link">
-                <img src="images/StageDoorLogo.png" alt="StageDoor Logo" class="logo">
+                <img src="images/StageDoorLogo.png" alt="StageDoor" class="logo">
             </a>
 
             <nav class="nav">
@@ -31,8 +31,8 @@
         </div>
     </header>
 
-    <main class="container" style="padding-top: 60px;">
-        <button onclick="window.history.back()" class="back-btn">← Back to Archive</button>
+    <main class="container" style="padding-top: 40px;">
+        <a href="index.html#archive" class="back-btn">← Back to Archive</a>
 
         <h2 id="d-title"></h2>
         <p class="tagline" id="d-tagline"></p>
@@ -56,70 +56,44 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <small>StageDoor prototype — Angie</small>
-        </div>
+        <small>StageDoor prototype — Angie</small>
     </footer>
 
     <script src="app.js"></script>
     <script>
-        // Load detail data
         async function loadDetail() {
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
-            if (!id) {
-                window.location.href = 'index.html';
-                return;
-            }
+            if (!id) return window.location.href = 'index.html';
 
             const res = await fetch('data.json');
             const shows = await res.json();
             const show = shows.find(s => s.id === id);
+            if (!show) return window.location.href = 'index.html';
 
-            if (!show) {
-                window.location.href = 'index.html';
-                return;
-            }
-
-            document.getElementById('page-title').textContent = `StageDoor - ${show.title}`;
+            document.getElementById('page-title').textContent = `StageDoor — ${show.title}`;
             document.getElementById('d-title').textContent = show.title;
             document.getElementById('d-tagline').textContent = show.tagline || '';
             document.getElementById('d-overview').textContent = show.overview;
 
             // Tags
             const tagsUl = document.getElementById('d-tags');
-            tagsUl.innerHTML = '';
-            show.tags.forEach(t => {
-                const li = document.createElement('li');
-                li.textContent = t;
-                tagsUl.appendChild(li);
-            });
+            tagsUl.innerHTML = show.tags.map(t => `<li>${t}</li>`).join('');
 
             // Cast
             const castUl = document.getElementById('d-cast');
-            castUl.innerHTML = '';
-            show.cast.forEach(c => {
-                const li = document.createElement('li');
-                li.textContent = `${c.role} — ${c.actor}`;
-                castUl.appendChild(li);
-            });
+            castUl.innerHTML = show.cast.map(c => `<li>${c.role} — ${c.actor}</li>`).join('');
 
             // Songs
             const songsOl = document.getElementById('d-songs');
-            songsOl.innerHTML = '';
-            show.songs.forEach(song => {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${song.name}</strong>: ${song.note}`;
-                songsOl.appendChild(li);
-            });
+            songsOl.innerHTML = show.songs.map((song, i) => `<li><strong>${i+1}. ${song.name}:</strong> ${song.note}</li>`).join('');
 
-            // Also
+            // ALSO — now proper small cards + mutual links
             const alsoDiv = document.getElementById('also');
             alsoDiv.innerHTML = '';
             if (show.also && show.also.length > 0) {
-                const allShows = shows; // already loaded
                 show.also.forEach(aId => {
-                    const related = allShows.find(s => s.id === aId);
+                    const related = shows.find(s => s.id === aId);
                     if (!related) return;
                     const card = document.createElement('div');
                     card.className = 'alsoCard';
@@ -133,9 +107,8 @@
             }
         }
 
-        // Theme toggle (same as index)
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('change', () => {
+        // Theme toggle (now works on detail page)
+        document.getElementById('theme-toggle').addEventListener('change', () => {
             document.body.classList.toggle('light');
             document.body.classList.toggle('dark');
         });

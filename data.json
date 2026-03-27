@@ -1,202 +1,145 @@
 [
   {
-  "id":"hadestown",
-  "title":"Hadestown",
-  "poster":"images/Hadestown.png",
-  "genre":"Myth",
-  "music_genre":"Folk",
-  "format":"Sung-through",
-  "tags":["tragic","mythology","romantic"],
-  "overview":"A modern retelling of the myth of Orpheus and Eurydice set in an industrial underworld.",
-  "cast":[
-  {"role":"Eurydice","actor":"Eva Noblezada"},
-  {"role":"Orpheus","actor":"Reeve Carney"}
-  ],
-  "songs":[
-  {"name":"Road to Hell","note":"Hermes introduces the world."},
-  {"name":"Wait For Me","note":"Orpheus journeys to the underworld."}
-  ],
-  "also":["hadestown-london","hadestown-original"]
+    "id": "hadestown",
+    "title": "Hadestown",
+    "poster": "images/Hadestown.png",
+    "genre": "Myth",
+    "music_genre": "Folk",
+    "format": "Sung-through",
+    "tags": ["tragic", "mythology", "romantic"],
+    "overview": "A modern retelling of the myth of Orpheus and Eurydice set in an industrial underworld.",
+    "cast": [{"role": "Eurydice", "actor": "Eva Noblezada"}, {"role": "Orpheus", "actor": "Reeve Carney"}],
+    "songs": [{"name": "Road to Hell", "note": "Hermes introduces the world."}, {"name": "Wait For Me", "note": "Orpheus journeys to the underworld."}],
+    "also": ["hadestown-london", "hadestown-original"]
   },
-  
   {
-  "id":"hadestown-london",
-  "title":"Hadestown (Live From London)",
-  "poster":"images/HadestownLondon.jpg",
-  "genre":"Myth",
-  "music_genre":"Folk",
-  "format":"Cast Recording",
-  "tags":["tragic","mythology", "romantic"],
-  "overview":"Live recording of the London cast of Hadestown.",
-  "cast":[
-  {"role":"Orpheus","actor":"Dylan Wood"}
-  ],
-  "songs":[
-  {"name":"Wait For Me","note":"Same song but now Orpheus is Irish."}
-  ],
-  "also":["hadestown"]
+    "id": "hadestown-london",
+    "title": "Hadestown (Live From London)",
+    "poster": "images/HadestownLondon.jpg",
+    "genre": "Myth",
+    "music_genre": "Folk",
+    "format": "Cast Recording",
+    "tags": ["tragic", "mythology", "romantic"],
+    "overview": "Live recording of the London cast of Hadestown.",
+    "cast": [{"role": "Orpheus", "actor": "Dylan Wood"}],
+    "songs": [{"name": "Wait For Me", "note": "Same song but now Orpheus is Irish."}],
+    "also": ["hadestown", "hadestown-original"]
   },
-  
   {
-  "id":"hadestown-original",
-  "title":"Hadestown (Original Concept Album)",
-  "poster":"images/OldHadestown.avif",
-  "genre":"Myth",
-  "music_genre":"Folk",
-  "format":"Concept Album",
-  "tags":["tragic","mythology","romantic"],
-  "overview":"Anaïs Mitchell’s original album (2017) that later became the musical.",
-  "cast":[
-  {"role":"Orpheus","actor":"Damon Daunno"}
-  ],
-  "songs":[
-  {"name":"Epic III","note":"Superior Epic III"}
-  ],
-  "also":["hadestown"]
+    "id": "hadestown-original",
+    "title": "Hadestown (Original Concept Album)",
+    "poster": "images/OldHadestown.avif",
+    "genre": "Myth",
+    "music_genre": "Folk",
+    "format": "Concept Album",
+    "tags": ["tragic", "mythology", "romantic"],
+    "overview": "Anaïs Mitchell’s original album (2017) that later became the musical.",
+    "cast": [{"role": "Orpheus", "actor": "Damon Daunno"}],
+    "songs": [{"name": "Epic III", "note": "Superior Epic III"}],
+    "also": ["hadestown", "hadestown-london"]
   },
-  
   {
-  "id":"heathers",
-  "title":"Heathers",
-  "poster":"images/Heathers.jpg",
-  "genre":"Dark Comedy",
-  "music_genre":"Pop Rock",
-  "format":"Book Musical",
-  "tags":["teen","satire"],
-  "overview":"Veronica joins the most popular clique at school and it spirals into chaos.",
-  "cast":[
-  {"role":"Veronica","actor":"Barrett Wilbert Weed"}
-  ],
-  "songs":[
-  {"name":"Beautiful","note":"Introduces the social world"}
-  ],
-  "also":[]
+    "id": "heathers",
+    "title": "Heathers",
+    "poster": "images/Heathers.jpg",
+    "genre": "Dark Comedy",
+    "music_genre": "Pop Rock",
+    "format": "Book Musical",
+    "tags": ["teen", "satire"],
+    "overview": "Veronica joins the most popular clique at school and it spirals into chaos.",
+    "cast": [{"role": "Veronica", "actor": "Barrett Wilbert Weed"}],
+    "songs": [{"name": "Beautiful", "note": "Introduces the social world"}],
+    "also": []
   },
-  
   {
-  "id":"mamma-mia",
-  "title":"Mamma Mia!",
-  "poster":"images/MammaMia.jpg",
-  "genre":"Comedy",
-  "music_genre":"Pop",
-  "format":"Jukebox Musical",
-  "tags":["romantic","ABBA"],
-  "overview":"Sophie invites three possible fathers to her wedding.",
-  "cast":[
-  {"role":"Donna","actor":"Louise Pitre"},
-  {"role":"Sophie","actor":"Tina Maddigan"}
-  ],
-  "songs":[
-  {"name":"Dancing Queen","note":"Peak ABBA"}
-  ],
-  "also":["mamma-mia-movie"]
+    "id": "mamma-mia",
+    "title": "Mamma Mia!",
+    "poster": "images/MammaMia.jpg",
+    "genre": "Comedy",
+    "music_genre": "Pop",
+    "format": "Jukebox Musical",
+    "tags": ["romantic", "ABBA"],
+    "overview": "Sophie invites three possible fathers to her wedding.",
+    "cast": [{"role": "Donna", "actor": "Louise Pitre"}, {"role": "Sophie", "actor": "Tina Maddigan"}],
+    "songs": [{"name": "Dancing Queen", "note": "Peak ABBA"}],
+    "also": ["mamma-mia-movie"]
   },
-  
   {
-  "id":"mamma-mia-movie",
-  "title":"Mamma Mia! (Movie)",
-  "poster":"images/MammaMiaMovie.jpg",
-  "genre":"Comedy",
-  "music_genre":"Pop",
-  "format":"Film Musical",
-  "tags":["romantic","ABBA"],
-  "overview":"Film adaptation of the musical.",
-  "cast":[
-  {"role":"Donna","actor":"Meryl Streep"}
-  ],
-  "songs":[
-  {"name":"Mamma Mia","note":"Title song"}
-  ],
-  "also":["mamma-mia"]
+    "id": "mamma-mia-movie",
+    "title": "Mamma Mia! (Movie)",
+    "poster": "images/MammaMiaMovie.jpg",
+    "genre": "Comedy",
+    "music_genre": "Pop",
+    "format": "Film Musical",
+    "tags": ["romantic", "ABBA"],
+    "overview": "Film adaptation of the musical.",
+    "cast": [{"role": "Donna", "actor": "Meryl Streep"}],
+    "songs": [{"name": "Mamma Mia", "note": "Title song"}],
+    "also": ["mamma-mia"]
   },
-  
   {
-  "id":"heights",
-  "title":"In The Heights",
-  "poster":"images/InTheHeights.jpg",
-  "genre":"Contemporary",
-  "music_genre":"Latin Hip-Hop",
-  "format":"Book Musical",
-  "tags":["community","latino","spanglish"],
-  "overview":"Stories of life in Washington Heights.",
-  "cast":[
-  {"role":"Usnavi","actor":"Lin-Manuel Miranda"}
-  ],
-  "songs":[
-  {"name":"In The Heights","note":"Opening number"}
-  ],
-  "also":["heights-movie"]
+    "id": "heights",
+    "title": "In The Heights",
+    "poster": "images/InTheHeights.jpg",
+    "genre": "Contemporary",
+    "music_genre": "Latin Hip-Hop",
+    "format": "Book Musical",
+    "tags": ["community", "latino", "spanglish"],
+    "overview": "Stories of life in Washington Heights.",
+    "cast": [{"role": "Usnavi", "actor": "Lin-Manuel Miranda"}],
+    "songs": [{"name": "In The Heights", "note": "Opening number"}],
+    "also": ["heights-movie"]
   },
-  
   {
-  "id":"heights-movie",
-  "title":"In The Heights (Movie)",
-  "poster":"images/InTheHeightsMovie.jpeg",
-  "genre":"Contemporary",
-  "music_genre":"Latin Hip-Hop",
-  "format":"Film Musical",
-  "tags":["community","latino","spanglish"],
-  "overview":"Film adaptation of the Broadway musical.",
-  "cast":[
-  {"role":"Usnavi","actor":"Anthony Ramos"}
-  ],
-  "songs":[
-  {"name":"96,000","note":"Lottery"}
-  ],
-  "also":["heights"]
+    "id": "heights-movie",
+    "title": "In The Heights (Movie)",
+    "poster": "images/InTheHeightsMovie.jpeg",
+    "genre": "Contemporary",
+    "music_genre": "Latin Hip-Hop",
+    "format": "Film Musical",
+    "tags": ["community", "latino", "spanglish"],
+    "overview": "Film adaptation of the Broadway musical.",
+    "cast": [{"role": "Usnavi", "actor": "Anthony Ramos"}],
+    "songs": [{"name": "96,000", "note": "Lottery"}],
+    "also": ["heights"]
   },
-  
   {
-  "id":"woods",
-  "title":"Into The Woods",
-  "poster":"images/IntoTheWoods.jpg",
-  "genre":"Fairy Tale",
-  "music_genre":"Broadway",
-  "format":"Book Musical",
-  "tags":["fantasy","dark"],
-  "overview":"Fairy tales collide in a darker story about wishes and consequences.",
-  "cast":[
-  {"role":"The Baker","actor":"Chip Zien"}
-  ],
-  "songs":[
-  {"name":"Into The Woods","note":"Opening number"}
-  ],
-  "also":["woods-movie","woods-2022"]
+    "id": "woods",
+    "title": "Into The Woods",
+    "poster": "images/IntoTheWoods.jpg",
+    "genre": "Fairy Tale",
+    "music_genre": "Broadway",
+    "format": "Book Musical",
+    "tags": ["fantasy", "dark"],
+    "overview": "Fairy tales collide in a darker story about wishes and consequences.",
+    "cast": [{"role": "The Baker", "actor": "Chip Zien"}],
+    "songs": [{"name": "Into The Woods", "note": "Opening number"}],
+    "also": ["woods-movie", "woods-2022"]
   },
-  
   {
-  "id":"woods-movie",
-  "title":"Into The Woods (Movie)",
-  "poster":"images/IntoTheWoodsMovie.jpeg",
-  "genre":"Fairy Tale",
-  "music_genre":"Broadway",
-  "format":"Film Musical",
-  "tags":["fantasy","dark"],
-  "overview":"Disney adaptation of the Sondheim musical.",
-  "cast":[
-  {"role":"The Witch","actor":"Meryl Streep"}
-  ],
-  "songs":[
-  {"name":"Stay With Me","note":"ate"}
-  ],
-  "also":["woods"]
+    "id": "woods-movie",
+    "title": "Into The Woods (Movie)",
+    "poster": "images/IntoTheWoodsMovie.jpeg",
+    "genre": "Fairy Tale",
+    "music_genre": "Broadway",
+    "format": "Film Musical",
+    "tags": ["fantasy", "dark"],
+    "overview": "Disney adaptation of the Sondheim musical.",
+    "cast": [{"role": "The Witch", "actor": "Meryl Streep"}],
+    "songs": [{"name": "Stay With Me", "note": "ate"}],
+    "also": ["woods", "woods-2022"]
   },
-  
   {
-  "id":"woods-2022",
-  "title":"Into The Woods (2022 Broadway Cast)",
-  "poster":"images/IntoTheWoods2022.jpeg",
-  "genre":"Fairy Tale",
-  "music_genre":"Broadway",
-  "format":"Book Musical",
-  "tags":["fantasy","dark","revival"],
-  "overview":"Recording from the 2022 Broadway revival.",
-  "cast":[
-  {"role":"The Witch","actor":"Sara Bareilles"}
-  ],
-  "songs":[
-  {"name":"Stay With Me","note":"I met her irl btw. Totally bragging"}
-  ],
-  "also":["woods"]
+    "id": "woods-2022",
+    "title": "Into The Woods (2022 Broadway Cast)",
+    "poster": "images/IntoTheWoods2022.jpeg",
+    "genre": "Fairy Tale",
+    "music_genre": "Broadway",
+    "format": "Book Musical",
+    "tags": ["fantasy", "dark", "revival"],
+    "overview": "Recording from the 2022 Broadway revival.",
+    "cast": [{"role": "The Witch", "actor": "Sara Bareilles"}],
+    "songs": [{"name": "Stay With Me", "note": "I met her irl btw. Totally bragging"}],
+    "also": ["woods", "woods-movie"]
   }
-  ]
+]
