@@ -47,11 +47,20 @@
             <div>
                 <h3>Cast</h3>
                 <ul id="d-cast"></ul>
-                <h3>Song Timeline</h3>
-                <ol id="d-songs"></ol>
-                <h3>Also</h3>
-                <div id="also" class="also"></div>
             </div>
+        </div>
+
+        <!-- VISUAL TIMELINE - Hadestown only -->
+        <div id="visual-timeline" class="visual-timeline-section">
+            <h3 style="text-align:center; margin:60px 0 30px;">Full Song Timeline</h3>
+            
+            <!-- Act I -->
+            <h4 class="act-title">Act I</h4>
+            <div id="act1-timeline" class="timeline"></div>
+
+            <!-- Act II -->
+            <h4 class="act-title" style="margin-top:80px;">Act II</h4>
+            <div id="act2-timeline" class="timeline"></div>
         </div>
     </main>
 
@@ -78,21 +87,79 @@
 
             document.getElementById('d-tags').innerHTML = show.tags.map(t => `<li>${t}</li>`).join('');
             document.getElementById('d-cast').innerHTML = show.cast.map(c => `<li>${c.role} — ${c.actor}</li>`).join('');
-            document.getElementById('d-songs').innerHTML = show.songs.map((song, i) => `<li><strong>${i+1}. ${song.name}:</strong> ${song.note}</li>`).join('');
 
-            const alsoDiv = document.getElementById('also');
-            alsoDiv.innerHTML = '';
-            if (show.also && show.also.length) {
-                show.also.forEach(aId => {
-                    const related = shows.find(s => s.id === aId);
-                    if (!related) return;
-                    const card = document.createElement('div');
-                    card.className = 'alsoCard';
-                    card.innerHTML = `<img src="${related.poster}" alt="${related.title}"><p>${related.title}</p>`;
-                    card.onclick = () => window.location.href = `detail.html?id=${related.id}`;
-                    alsoDiv.appendChild(card);
-                });
+            // === HADestown VISUAL TIMELINE ===
+            if (id === "hadestown") {
+                renderHadestownTimeline();
             }
+        }
+
+        function renderHadestownTimeline() {
+            const act1 = [
+                {num:1, title:"Road to Hell", chars:"Hermes, Company"},
+                {num:2, title:"Any Way the Wind Blows", chars:"Eurydice, The Fates"},
+                {num:3, title:"Come Home With Me", chars:"Orpheus, Eurydice, Hermes, Workers"},
+                {num:4, title:"Wedding Song", chars:"Orpheus, Eurydice, Workers"},
+                {num:5, title:"Epic I", chars:"Orpheus, Hermes"},
+                {num:6, title:"Livin' it Up on Top", chars:"Persephone, Hermes, Orpheus, Company"},
+                {num:7, title:"All I've Ever Known", chars:"Eurydice, Orpheus"},
+                {num:8, title:"Way Down Hadestown", chars:"Company"},
+                {num:9, title:"A Gathering Storm", chars:"Hermes, Orpheus, Eurydice, The Fates"},
+                {num:10, title:"Epic II", chars:"Orpheus"},
+                {num:11, title:"Chant", chars:"Company"},
+                {num:12, title:"Hey, Little Songbird", chars:"Hades, Eurydice"},
+                {num:13, title:"When the Chips Are Down", chars:"The Fates, Eurydice"},
+                {num:14, title:"Gone, I'm Gone", chars:"Eurydice, The Fates"},
+                {num:15, title:"Wait for Me", chars:"Hermes, Orpheus, The Fates, Workers"},
+                {num:16, title:"Why We Build the Wall", chars:"Hades, Company"}
+            ];
+
+            const act2 = [
+                {num:1, title:"Our Lady of the Underground", chars:"Persephone"},
+                {num:2, title:"Way Down Hadestown (reprise)", chars:"Hermes, The Fates, Eurydice, Workers"},
+                {num:3, title:"Flowers", chars:"Eurydice"},
+                {num:4, title:"Come Home With Me (reprise)", chars:"Orpheus, Eurydice"},
+                {num:5, title:"Papers", chars:"Hades, Company"},
+                {num:6, title:"Nothing Changes", chars:"The Fates"},
+                {num:7, title:"If It's True", chars:"Orpheus, Hermes, Workers"},
+                {num:8, title:"How Long?", chars:"Persephone, Hades"},
+                {num:9, title:"Chant (reprise)", chars:"Company"},
+                {num:10, title:"Epic III", chars:"Orpheus, Company"},
+                {num:11, title:"Promises", chars:"Eurydice, Orpheus"},
+                {num:12, title:"Word to the Wise", chars:"The Fates"},
+                {num:13, title:"His Kiss, the Riot", chars:"Hades"},
+                {num:14, title:"Wait for Me (reprise)", chars:"Hermes, Company"},
+                {num:15, title:"Doubt Comes In", chars:"Orpheus, Eurydice, The Fates, Workers"},
+                {num:16, title:"Road to Hell (reprise)", chars:"Hermes, Company"},
+                {num:17, title:"We Raise our Cups", chars:"Persephone, Eurydice, Company"}
+            ];
+
+            // Render Act I
+            const act1HTML = act1.map((song, i) => `
+                <div class="timeline-item ${i % 2 === 0 ? 'left' : 'right'}">
+                    <div class="timeline-image">pic ${song.num}</div>
+                    <div class="timeline-content">
+                        <h4>${song.title}</h4>
+                        <p class="characters">${song.chars}</p>
+                        <p class="desc-placeholder">Desc coming soon</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Render Act II
+            const act2HTML = act2.map((song, i) => `
+                <div class="timeline-item ${i % 2 === 0 ? 'left' : 'right'}">
+                    <div class="timeline-image">pic ${song.num}</div>
+                    <div class="timeline-content">
+                        <h4>${song.title}</h4>
+                        <p class="characters">${song.chars}</p>
+                        <p class="desc-placeholder">Desc coming soon</p>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('act1-timeline').innerHTML = act1HTML;
+            document.getElementById('act2-timeline').innerHTML = act2HTML;
         }
 
         loadDetail();
