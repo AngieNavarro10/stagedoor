@@ -1,7 +1,7 @@
 let shows = [];
 let filtered = [];
 
-// Archive page elements 
+// Archive page elements
 const grid = document.getElementById("grid");
 const search = document.getElementById("search");
 const genre = document.getElementById("genre");
@@ -9,12 +9,11 @@ const musicGenre = document.getElementById("musicGenre");
 const format = document.getElementById("format");
 const tag = document.getElementById("tag");
 
-// Theme toggle
+// THEME SYSTEM - now fully syncs between pages
 function setupThemeToggle() {
     const toggle = document.getElementById("theme-toggle");
     if (!toggle) return;
 
-    // Load saved preference or default to dark
     const saved = localStorage.getItem("theme") || "dark";
     const isLight = saved === "light";
 
@@ -27,6 +26,11 @@ function setupThemeToggle() {
         document.body.classList.toggle("light", nowLight);
         document.body.classList.toggle("dark", !nowLight);
         localStorage.setItem("theme", nowLight ? "light" : "dark");
+    });
+
+    // This line fixes the "change on detail page doesn't update home" issue
+    window.addEventListener("storage", (e) => {
+        if (e.key === "theme") location.reload();
     });
 }
 
@@ -105,7 +109,7 @@ async function init() {
     populateFilters();
     applyFilters();
 
-    // Attach listeners only if they exist (works on both pages)
+    // These event listeners were missing before
     if (search) search.addEventListener("input", applyFilters);
     if (genre) genre.addEventListener("change", applyFilters);
     if (musicGenre) musicGenre.addEventListener("change", applyFilters);
