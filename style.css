@@ -89,7 +89,7 @@ body.light { background: #efe7c9; color: #111; }
 input:checked + .slider { background: #8b0d0d; }
 input:checked + .slider:before { transform: translateX(24px); }
 
-/* HERO - FIXED (title no longer cuts off) */
+/* HERO */
 .hero-split {
     display: flex;
     min-height: 100vh;
@@ -126,7 +126,7 @@ input:checked + .slider:before { transform: translateX(24px); }
 }
 
 .hero-title {
-    font-size: 5.2rem;           /* smaller so it doesn't overflow */
+    font-size: 5.2rem;       
     line-height: 1.05;
     margin: 0 0 24px 0;
     font-weight: bold;
@@ -154,7 +154,7 @@ body.light .hero-title { color: #8b0d0d; }
 
 .btn-primary:hover { background: #b81a1a; transform: scale(1.05); }
 
-/* ABOUT - now centered */
+/* ABOUT */
 .about-section {
     padding: 80px 0;
 }
@@ -167,7 +167,7 @@ body.light .hero-title { color: #8b0d0d; }
     line-height: 1.6;
 }
 
-/* ARCHIVE & CARDS (unchanged but kept clean) */
+/* ARCHIVE & CARDS */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 .section-title { font-size: 2.8rem; text-align: center; margin: 80px 0 40px; }
 

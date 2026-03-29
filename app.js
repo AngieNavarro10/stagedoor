@@ -28,7 +28,6 @@ function setupThemeToggle() {
         localStorage.setItem("theme", nowLight ? "light" : "dark");
     });
 
-    // This line fixes the "change on detail page doesn't update home" issue
     window.addEventListener("storage", (e) => {
         if (e.key === "theme") location.reload();
     });
@@ -109,7 +108,6 @@ async function init() {
     populateFilters();
     applyFilters();
 
-    // These event listeners were missing before
     if (search) search.addEventListener("input", applyFilters);
     if (genre) genre.addEventListener("change", applyFilters);
     if (musicGenre) musicGenre.addEventListener("change", applyFilters);
