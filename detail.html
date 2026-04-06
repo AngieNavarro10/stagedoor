@@ -11,7 +11,10 @@
     <header class="header">
         <div class="header-content">
             <a href="index.html" class="logo-link">
-                <img src="images/StageDoorLogo.png" alt="StageDoor" class="logo">
+                <!-- Light mode logo -->
+                <img src="images/StageDoorLogo.png" alt="StageDoor" class="logo-light">
+                <!-- Dark mode logo -->
+                <img src="images/StageDoorLogoDarkMode.png" alt="StageDoor" class="logo-dark">
             </a>
 
             <nav class="nav">
@@ -82,7 +85,6 @@
             document.getElementById('d-tags').innerHTML = show.tags.map(t => `<li>${t}</li>`).join('');
             document.getElementById('d-cast').innerHTML = show.cast.map(c => `<li>${c.role} — ${c.actor}</li>`).join('');
 
-            // TIMELINE ONLY FOR HADESTOWN
             const timelineDiv = document.getElementById('visual-timeline');
             timelineDiv.innerHTML = '';
             if (id === "hadestown") {
@@ -102,7 +104,6 @@
                 renderHadestownTimeline();
             }
 
-            // ALSO SECTION
             const alsoDiv = document.getElementById('also');
             alsoDiv.innerHTML = '';
             if (show.also && show.also.length > 0) {
@@ -119,7 +120,7 @@
         }
 
         function renderHadestownTimeline() {
-            const act1 = [
+            const act1 = [ /* your list */ 
                 {num:1, title:"Road to Hell", chars:"Hermes, Company"},
                 {num:2, title:"Any Way the Wind Blows", chars:"Eurydice, The Fates"},
                 {num:3, title:"Come Home With Me", chars:"Orpheus, Eurydice, Hermes, Workers"},
@@ -138,7 +139,7 @@
                 {num:16, title:"Why We Build the Wall", chars:"Hades, Company"}
             ];
 
-            const act2 = [
+            const act2 = [ /* your list */ 
                 {num:1, title:"Our Lady of the Underground", chars:"Persephone"},
                 {num:2, title:"Way Down Hadestown (reprise)", chars:"Hermes, The Fates, Eurydice, Workers"},
                 {num:3, title:"Flowers", chars:"Eurydice"},

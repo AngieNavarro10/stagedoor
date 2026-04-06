@@ -286,7 +286,7 @@ body.light .back-btn {
     margin-top: 80px;
 }
 
-/* ===================== VISUAL TIMELINE (fixes the screenshot layout) ===================== */
+/* ===================== VISUAL TIMELINE ===================== */
 .visual-timeline-section { margin: 60px 0; }
 
 .act-title {
@@ -393,6 +393,27 @@ body.light .timeline-content {
 .act-details summary::-webkit-details-marker {
     display: none;
 }
+
+/* ===================== LOGO THEME SWAP ===================== */
+.logo-link {
+    position: relative;
+    display: inline-block;
+}
+
+.logo-light,
+.logo-dark {
+    height: 42px;
+    width: auto;
+    transition: opacity 0.3s ease;
+}
+
+/* Dark mode: show dark logo, hide light */
+body.dark .logo-light { display: none; }
+body.dark .logo-dark { display: inline-block; }
+
+/* Light mode: show light logo, hide dark */
+body.light .logo-dark { display: none; }
+body.light .logo-light { display: inline-block; }
 
 /* Mobile */
 @media (max-width: 768px) {
