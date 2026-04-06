@@ -399,15 +399,16 @@ body.light .timeline-content {
     display: inline-flex;
     align-items: center;
     height: 42px;
-    width: auto;
+    width: 220px;               /* fixed container so both logos occupy same space */
+    justify-content: flex-start;
 }
 
 .logo-light,
 .logo-dark {
     height: 42px !important;
-    width: auto !important;
     max-height: 42px !important;
-    object-fit: contain;           /* forces visual content to same height */
+    width: auto !important;
+    object-fit: contain;        /* forces the visible content to the same height */
     vertical-align: middle;
     transition: opacity 0.3s ease;
 }
