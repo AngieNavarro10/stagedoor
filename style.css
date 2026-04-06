@@ -369,6 +369,31 @@ body.light .timeline-content {
     opacity: 0.75;
 }
 
+/* Collapsible Act titles */
+.act-details {
+    margin: 40px 0;
+}
+
+.act-title {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #8b0d0d;
+    cursor: pointer;
+    text-decoration: underline;
+    list-style: none;
+    padding: 15px 0;
+    border-bottom: 2px solid #8b0d0d;
+    margin-bottom: 20px;
+}
+
+.act-details[open] .act-title {
+    border-bottom: none;
+}
+
+.act-details summary::-webkit-details-marker {
+    display: none;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     .timeline::before { left: 40px; }
