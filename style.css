@@ -394,26 +394,30 @@ body.light .timeline-content {
     display: none;
 }
 
-/* ===================== LOGO THEME SWAP ===================== */
+/* ===================== CHANGE LOGO ===================== */
 .logo-link {
-    position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    height: 42px;
+    width: auto;
 }
 
 .logo-light,
 .logo-dark {
-    height: 42px;
-    width: auto;
+    height: 42px !important;
+    width: auto !important;
+    max-height: 42px !important;
+    object-fit: contain;           /* forces visual content to same height */
+    vertical-align: middle;
     transition: opacity 0.3s ease;
 }
 
-/* Dark mode: show dark logo, hide light */
-body.dark .logo-light { display: none; }
-body.dark .logo-dark { display: inline-block; }
+/* Show correct logo based on mode */
+body.dark .logo-light  { display: none !important; }
+body.dark .logo-dark   { display: inline-block !important; }
 
-/* Light mode: show light logo, hide dark */
-body.light .logo-dark { display: none; }
-body.light .logo-light { display: inline-block; }
+body.light .logo-dark  { display: none !important; }
+body.light .logo-light { display: inline-block !important; }
 
 /* Mobile */
 @media (max-width: 768px) {
