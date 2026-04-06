@@ -9,7 +9,7 @@ const musicGenre = document.getElementById("musicGenre");
 const format = document.getElementById("format");
 const tag = document.getElementById("tag");
 
-// THEME SYSTEM - now fully syncs between pages
+// THEME SYSTEM 
 function setupThemeToggle() {
     const toggle = document.getElementById("theme-toggle");
     if (!toggle) return;
