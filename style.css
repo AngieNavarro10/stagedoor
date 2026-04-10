@@ -399,7 +399,7 @@ body.light .timeline-content {
     display: inline-flex;
     align-items: center;
     height: 42px;
-    width: 220px;               /* fixed container so both logos occupy same space */
+    width: 220px;             
     justify-content: flex-start;
 }
 
@@ -408,7 +408,7 @@ body.light .timeline-content {
     height: 42px !important;
     max-height: 42px !important;
     width: auto !important;
-    object-fit: contain;        /* forces the visible content to the same height */
+    object-fit: contain;        
     vertical-align: middle;
     transition: opacity 0.3s ease;
 }
