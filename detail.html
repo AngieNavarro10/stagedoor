@@ -5,15 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="page-title">StageDoor</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Cast grid - only used on Hadestown */
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .cast-card {
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .cast-card:hover {
+            transform: translateY(-4px);
+        }
+        .cast-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #8b0d0d;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        .cast-card .actor {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        .cast-card .character {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin: 2px 0 0;
+        }
+        body.light .cast-card img {
+            border-color: #8b0d0d;
+        }
+    </style>
 </head>
 <body class="dark">
 
     <header class="header">
         <div class="header-content">
             <a href="index.html" class="logo-link">
-                <!-- Light mode logo -->
                 <img src="images/StageDoorLogoLightMode.png" alt="StageDoor" class="logo-light">
-                <!-- Dark mode logo -->
                 <img src="images/StageDoorLogoDarkMode.png" alt="StageDoor" class="logo-dark">
             </a>
 
@@ -49,7 +85,7 @@
             </div>
             <div>
                 <h3>Cast</h3>
-                <ul id="d-cast"></ul>
+                <div id="d-cast" class="cast-grid"></div>
             </div>
         </div>
 
@@ -83,27 +119,49 @@
             document.getElementById('d-overview').textContent = show.overview;
 
             document.getElementById('d-tags').innerHTML = show.tags.map(t => `<li>${t}</li>`).join('');
-            document.getElementById('d-cast').innerHTML = show.cast.map(c => `<li>${c.role} — ${c.actor}</li>`).join('');
 
+            // === CAST SECTION ===
+            const castDiv = document.getElementById('d-cast');
+            castDiv.innerHTML = '';
+
+            if (id === "hadestown") {
+                // Photo cast for Hadestown
+                const hadestownCast = [
+                    {actor: "Reeve Carney", character: "Orpheus", photo: "images/ReeveCarney.jpg"},
+                    {actor: "Eva Noblezada", character: "Eurydice", photo: "images/EvaNoblezada.jpg"},
+                    {actor: "Patrick Page", character: "Hades", photo: "images/PatrickPage.jpg"},
+                    {actor: "Amber Gray", character: "Persephone", photo: "images/AmberGray.jpg"},
+                    {actor: "André De Shields", character: "Hermes", photo: "images/AndreDeShields.jpg"}
+                ];
+
+                hadestownCast.forEach(c => {
+                    const card = document.createElement('div');
+                    card.className = 'cast-card';
+                    card.innerHTML = `
+                        <img src="${c.photo}" alt="${c.actor}">
+                        <div class="actor">${c.actor}</div>
+                        <div class="character">as ${c.character}</div>
+                    `;
+                    castDiv.appendChild(card);
+                });
+            } else {
+                // Normal text list for every other show
+                castDiv.innerHTML = show.cast.map(c => `<p>${c.role} — ${c.actor}</p>`).join('');
+            }
+
+            // TIMELINE ONLY FOR HADESTOWN
             const timelineDiv = document.getElementById('visual-timeline');
             timelineDiv.innerHTML = '';
             if (id === "hadestown") {
                 timelineDiv.innerHTML = `
                     <h3 style="text-align:center; margin:60px 0 30px;">Full Song Timeline</h3>
-                    
-                    <details class="act-details">
-                        <summary class="act-title">Act I</summary>
-                        <div id="act1-timeline" class="timeline"></div>
-                    </details>
-                    
-                    <details class="act-details">
-                        <summary class="act-title">Act II</summary>
-                        <div id="act2-timeline" class="timeline"></div>
-                    </details>
+                    <details class="act-details"><summary class="act-title">Act I</summary><div id="act1-timeline" class="timeline"></div></details>
+                    <details class="act-details"><summary class="act-title">Act II</summary><div id="act2-timeline" class="timeline"></div></details>
                 `;
                 renderHadestownTimeline();
             }
 
+            // ALSO SECTION
             const alsoDiv = document.getElementById('also');
             alsoDiv.innerHTML = '';
             if (show.also && show.also.length > 0) {
@@ -120,7 +178,7 @@
         }
 
         function renderHadestownTimeline() {
-            const act1 = [
+            const act1 = [ 
                 {num:1, title:"Road to Hell", chars:"Hermes, Company"},
                 {num:2, title:"Any Way the Wind Blows", chars:"Eurydice, The Fates"},
                 {num:3, title:"Come Home With Me", chars:"Orpheus, Eurydice, Hermes, Workers"},
@@ -139,7 +197,7 @@
                 {num:16, title:"Why We Build the Wall", chars:"Hades, Company"}
             ];
 
-            const act2 = [
+            const act2 = [ 
                 {num:1, title:"Our Lady of the Underground", chars:"Persephone"},
                 {num:2, title:"Way Down Hadestown (reprise)", chars:"Hermes, The Fates, Eurydice, Workers"},
                 {num:3, title:"Flowers", chars:"Eurydice"},
